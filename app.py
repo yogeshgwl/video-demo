@@ -5,7 +5,7 @@ from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 UPLOAD_FOLDER = "uploads"
-BUCKET = "lats-image-data"
+BUCKET = "demo-cloudfront-s3-video"
 
 @app.route("/")
 def home():
@@ -14,6 +14,9 @@ def home():
 
 @app.route("/pics")
 def list():
+    print("YT")
+    print(list_files(BUCKET))
+    print("YT")
     contents = show_image(BUCKET)
     return render_template('collection.html', contents=contents)
 
